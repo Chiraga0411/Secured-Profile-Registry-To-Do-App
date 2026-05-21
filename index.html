@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secured Profile Registry</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>Secured Profile Registry</div>
+        </nav>
+    </header>
+    <main>
+        <section class="entry">
+            <div id="entry-heading">PROFILE REGISTRATION</div>
+            <form action="post">
+                <div class="form">
+                    <div class="name">
+                        <div><label for="name" class="name">Name</label></div>
+                        <div><input class="name" type="text" placeholder="Enter name"></div>
+                    </div>
+                    <div class="email">
+                        <div><label for="email" class="email">Email</label></div>
+                        <div><input class="email" type="text" placeholder="Enter email"></div>
+                    </div>
+                    <div class="age">
+                        <div><label for="age" class="age">Age</label></div>
+                        <div><input class="age" type="number" name="" id="" placeholder="Enter age"></div>
+                    </div>
+                    <div class="password">
+                        <div><label for="password" class="password">Password</label></div>
+                        <div><input class="password" type="password" name="" id="" placeholder="Set password"></div>
+                    </div>
+                    <div class="save-button">
+                        <button>Save Data</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section class="display">
+            <div class="saved-registries">
+                <div class="heading">SAVED REGISTRIES</div>
+                <div class="no-of-entries"></div>
+            </div>
+            <div class="details">
+                <div class="name">
+                    <div>Name</div>
+                </div>
+                <div class="email">
+                    <div>Email</div>
+                </div>
+                <div class="age">
+                    <div>Age</div>
+                </div>
+                <div class="actions">
+                    <div>Actions</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="pass-popup">
+        <div>
+            <div class="heading">Please enter password: </div>
+            <input type="password" placeholder="Enter password" id="typed-pass">
+            <br>
+            <button class="cancel-pass-btn">Cancel</button>
+            <button class="submit-pass-btn">Submit</button>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+
+</html>

@@ -1,0 +1,314 @@
+body {
+    min-height: 100vh;
+    background-color: #020c10;
+    background-image: radial-gradient(rgba(114, 216, 213, 0.22) 1.5px, transparent 1.5px);
+    background-size: 30px 30px;
+}
+
+:root {
+    --txt1: rgb(231, 231, 231);
+    --heading: rgb(0, 133, 185);
+    --txt2: rgb(185, 185, 185);
+}
+header{
+    top: 1vh;
+    color: var(--heading);
+    height: auto;
+    font-size: 2em;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    border: 4px solid rgba(0, 61, 85, 0.34);
+}
+header div{
+    margin: 10px;
+}
+.entry, .display{
+    min-height: 28vh;
+    max-width: 80vw;
+    background-color: rgba(46, 54, 78, 0.437);
+    margin: 30px auto;
+    border-radius: 20px;
+    border: 2px solid var(--heading);
+}
+#entry-heading, .display .saved-registries .heading{
+    color: var(--txt1);
+    font-size: 1.5em;
+    padding: 2vh 2vw;
+}
+.entry .form{
+    color: var(--txt2);
+    display: grid;
+    grid-template-areas: "name email age"
+                        "password password save";
+    gap: 10px;
+}
+.entry .form input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(58, 196, 251, 0.4);
+    background-color: #020c10;
+    color: var(--txt2);
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+.entry .form input:focus {
+    border: 1px solid var(--heading);
+    background-color: #020c102d;
+}
+.entry .form .name{
+    grid-area: name;
+    margin: 5px 1vw;
+    font-size: 1.1em;
+}
+.entry .form .email{
+    grid-area: email;
+    margin: 5px 1vw;
+    font-size: 1.1em;
+}
+.entry .form .age{
+    grid-area: age;
+    margin: 5px 1vw;
+    font-size: 1.1em;
+}
+.entry .form .password{
+    grid-area: password;
+    margin: 5px 1vw;
+    font-size: 1.1em;
+}
+.entry .form .save-button{
+    grid-area: save;
+}
+.entry .form .save-button button{
+    padding: 1vh 2vw;
+    cursor: pointer;
+    background-color: rgb(77, 153, 196);
+    margin: 3vh;
+    border-radius: 10px;
+    font-size: 1.3em;
+    color: var(--txt1);
+    transition: all .2s ease-in-out;
+}
+.entry .form .save-button :hover{
+    background-color: rgb(33, 66, 85);
+    transform: translateY(-0.3vh);
+    scale: 1.01;
+}
+.entry .saved-registries .heading{
+    color: var(--txt1);
+    font-size: 1.5em;
+    padding: 2vh 2vw;
+}
+
+.display .saved-registries{
+    display: flex;
+    justify-content: space-between;
+}
+.display .saved-registries .no-of-entries{
+    min-height: 4vh;
+    max-width: 5vw;
+    background-color: var(--txt1);
+    margin: 2vh 1.5vw;
+    padding: 0.2vh 1vw;
+    border-radius: 10px;
+    color: rgb(96, 96, 96);
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.display .details{
+    display: grid;
+    grid-template-areas: "name age email actions";
+    color: var(--txt2);
+    margin: 5px 2vw;
+    font-size: 1.3em;
+}
+.display .details div{
+    margin: 0.5vh 0;
+}
+.display .details .name{
+    grid-area: name;
+}
+.display .details .name  :hover{
+    background-color: rgba(0, 47, 78, 0.727);
+}
+.display .details .name :first-child{
+    text-decoration: underline;
+}
+.display .details .email{
+    grid-area: email;
+}
+.display .details .email :hover{
+    background-color: rgba(0, 47, 78, 0.727);
+}
+.display .details .email :first-child{
+    text-decoration: underline;
+}
+.display .details .age{
+    grid-area: age;
+}
+.display .details .age :hover{
+    background-color: rgba(0, 47, 78, 0.727);
+}
+.display .details .age :first-child{
+    text-decoration: underline;
+}
+.display .details .actions{
+    grid-area: actions;
+}
+.display .details .actions> :first-child{
+    text-decoration: underline;
+}
+.display .details .actions .edit{
+    background-color: rgb(255, 255, 159);
+    color: rgb(140, 140, 2);
+    margin: 1vh 1vw 0 0;
+    padding: 0 0.4vw;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.display .details .actions .edit:hover{
+    /* border: 2px solid rgb(140, 140, 2); */
+    background-color: rgb(254, 254, 52);
+}
+.display .details .actions .delete{
+    background-color: rgb(253, 143, 143);
+    color: rgb(150, 0, 0);
+    padding: 0 0.2vw;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.display .details .actions .delete:hover{
+    background-color: rgb(255, 93, 93);
+}
+
+.pass-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #020c1069;
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+.pass-popup > div {
+    background-color: #020c10;
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid var(--heading);
+    text-align: center;
+    box-shadow:0 10px 30px rgba(35, 124, 156, 0.6);
+    min-width: 300px;
+}
+.pass-popup .heading {
+    color: var(--txt1);
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+#typed-pass {
+    width: 80%;
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--heading);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 1em;
+    outline: none;
+    transition: background 0.3s;
+}
+#typed-pass:focus {
+    background: rgba(255, 255, 255, 0.15);
+}
+.pass-popup button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.cancel-pass-btn {
+    background-color: rgb(253, 143, 143);
+    color: rgb(150, 0, 0);
+}
+.cancel-pass-btn:hover {
+    background-color: rgb(255, 93, 93);
+    transform: scale(1.05);
+}
+.submit-pass-btn {
+    background-color: var(--heading);
+    color: white;
+}
+.submit-pass-btn:hover {
+    background-color: rgb(0, 160, 220);
+    transform: scale(1.05);
+}
+@media screen and (max-width: 1325px){
+    .display .saved-registries .no-of-entries{
+        max-width: 30vw;
+    }
+    .entry .form {
+        grid-template-areas: 
+            "name email" 
+            "age password" 
+            "save save" ;
+        padding: 0 4vw 2vh 4vw;
+    }
+}
+@media screen and (max-width: 768px) {
+    .entry, .display {
+        margin: 15px auto;
+    }
+    .entry .form {
+        grid-template-areas: 
+            "name" 
+            "email" 
+            "age" 
+            "password" 
+            "save";
+        padding: 0 4vw 2vh 4vw;
+    }
+    .entry .form input {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 5px;
+    }
+    .entry .form .save-button button {
+        width: 100%;
+        margin: 2vh 0 0 0;
+    }
+    header {
+        font-size: 1.5em;
+        border-radius: 20px;
+        top: 0;
+    }
+    .display {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    .display .details {
+        min-width: 600px;
+        font-size: 1.1em;
+    }
+    
+    .display .saved-registries {
+        position: sticky; 
+        left: 0;
+    }
+    .pass-popup > div {
+        min-width: 80vw;
+        padding: 30px 20px;
+    }
+    #typed-pass {
+        width: 90%;
+    }
+}
